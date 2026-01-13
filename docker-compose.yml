@@ -15,33 +15,3 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
-  # Adminer - lightweight database management UI
-  adminer:
-    image: adminer:latest
-    container_name: demo-adminer
-    ports:
-      - "8081:8080"
-    restart: unless-stopped
-    depends_on:
-      - db
-
-  # PostgreSQL database
-  db:
-    image: postgres:16-alpine
-    container_name: demo-postgres
-    environment:
-      POSTGRES_USER: demo
-      POSTGRES_PASSWORD: demo123
-      POSTGRES_DB: demodb
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U demo -d demodb"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-volumes:
-  postgres_data:

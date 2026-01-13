@@ -1,52 +1,25 @@
-# Docker Compose Demo
+# Nginx Docker Demo
 
-A simple demonstration of Docker Compose with multiple services working together.
+A minimal Docker Compose setup running Nginx as a static web server.
 
-## 🚀 Services
-
-| Service    | Description                  | Port  |
-|------------|------------------------------|-------|
-| **Nginx**  | Static web server            | 8080  |
-| **PostgreSQL** | Database server          | 5432  |
-| **Adminer** | Database management UI      | 8081  |
-
-## 📦 Prerequisites
-
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-
-## 🛠️ Usage
-
-### Start the services
+## 🚀 Quick Start
 
 ```bash
+# Start the server
 docker-compose up -d
-```
 
-### View the web page
+# View the web page
+open http://localhost:8080
 
-Open your browser and navigate to: [http://localhost:8080](http://localhost:8080)
-
-### Access database admin
-
-Open [http://localhost:8081](http://localhost:8081) and use:
-- **System**: PostgreSQL
-- **Server**: db
-- **Username**: demo
-- **Password**: demo123
-- **Database**: demodb
-
-### Stop the services
-
-```bash
+# Stop the server
 docker-compose down
 ```
 
-### Stop and remove volumes
+## 📦 Stack
 
-```bash
-docker-compose down -v
-```
+| Service | Image | Port |
+|---------|-------|------|
+| **Nginx** | `nginx:alpine` | 8080 |
 
 ## 📁 Project Structure
 
@@ -58,11 +31,9 @@ docker-compose down -v
 └── README.md             # This file
 ```
 
-## 🐳 Images Used
+## 🐳 Image
 
-- `nginx:alpine` - Lightweight Nginx web server
-- `postgres:16-alpine` - PostgreSQL 16 database
-- `adminer:latest` - Database management interface
+- `nginx:alpine` - Lightweight Nginx web server (~7MB)
 
 ## 📝 License
 
